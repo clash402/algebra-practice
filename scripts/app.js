@@ -1,3 +1,5 @@
+// Props
+
 const problemText = document.getElementById("problem-text");
 const answerBtn1 = document.getElementById("answers-btn-1");
 const answerBtn2 = document.getElementById("answers-btn-2");
@@ -6,19 +8,7 @@ const answerBtn4 = document.getElementById("answers-btn-4");
 
 let currentCorrectAnswer;
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max) + 1;
-}
-
-function getRandomBool() {
-  const bools = [true, false];
-  const randomBool = bools[Math.round(Math.random())];
-  return randomBool;
-}
-
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
+// Problem Sets
 
 function getRandomProblemAndAnswer() {
   const term1 = getRandomInt(12).toString();
@@ -61,6 +51,8 @@ function setCurrentCorrectAnswer(answer) {
   currentCorrectAnswer = answer.toString();
 }
 
+// UI
+
 function updateProblemSetUI(set) {
   const [problemString, correctAnswer, possibleAnswers] = set;
 
@@ -70,6 +62,8 @@ function updateProblemSetUI(set) {
   answerBtn3.innerHTML = possibleAnswers[2];
   answerBtn4.innerHTML = possibleAnswers[3];
 }
+
+// Events
 
 function onLoad() {
   const problemSet = getProblemSet();
@@ -89,4 +83,20 @@ function onAnswerBtnClicked(btn) {
 
   setCurrentCorrectAnswer(problemSet[1]);
   updateProblemSetUI(problemSet);
+}
+
+// Helpers
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+function getRandomBool() {
+  const bools = [true, false];
+  const randomBool = bools[Math.round(Math.random())];
+  return randomBool;
+}
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
 }

@@ -145,8 +145,8 @@ button {
   color: var(--clr-n-6);
   font-size: var(--fs-p-md);
   font-weight: var(--fw-b);
-  min-width: 7rem;
-  padding: 0.7rem 1rem;
+  min-width: 6rem;
+  padding: 1rem;
 }
 
 button:active {
@@ -206,7 +206,7 @@ input:focus {
 }
 
 .page-content {
-  padding-block: clamp(2rem, 15vh, 6rem);
+  padding-block: clamp(1rem, 8vh, 4rem);
   flex: 1;
 }
 
@@ -243,14 +243,16 @@ input:focus {
 
 .answers {
   align-items: center;
-  /* border: 1px solid #fff; */
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   padding: var(--spacer);
 }
 
-/* .answers-btn {} */
+.answers-btn {
+  flex: 1 1 12rem;
+}
 
 .page-footer {
   padding: var(--spacer);

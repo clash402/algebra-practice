@@ -1,0 +1,414 @@
+:root {
+  --ff: "Lato", sans-serif;
+
+  --fs-h1: 2.5rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.3125rem;
+  --fs-h4: 1.125rem;
+  --fs-h5: 1rem;
+  --fs-h6: 0.875rem;
+
+  --fs-p-lg: 1.25rem;
+  --fs-p-md: 1rem;
+  --fs-p-sm: 0.875rem;
+
+  --fs-s: 0.75rem;
+
+  --fw-n: 300;
+  --fw-m: 400;
+  --fw-b: 700;
+
+  --clr-p: #3b81f6;
+  --clr-s: #eb5545;
+  --clr-t: #f1a33d;
+
+  --clr-a-1: #4ca0e3;
+  --clr-a-1-light: #4ca0e3;
+
+  --clr-n-1: #272932;
+  --clr-n-2: #373946;
+  --clr-n-3: #4b4c55;
+  --clr-n-4: #5c626a;
+  --clr-n-5: #a4a5a9;
+  --clr-n-6: #dedee0;
+
+  --spacer: 1rem;
+  --spacer-md: calc(var(--spacer) * 2);
+  --spacer-lg: calc(var(--spacer) * 2.5);
+
+  --shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+  --br: 0.4rem;
+}
+
+/*
+@media (min-width: 800px) { :root { --fs-h1: 4rem; } }
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--clr-n-1);
+  color: var(--clr-n-6);
+  font-family: var(--ff);
+  font-weight: var(--fw-n);
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small {
+  font-size: clamp(var(--min), var(--val), var(--max));
+  margin: 0;
+  max-inline-size: 42rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  margin-bottom: 0.4em;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--fw-b);
+}
+
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-m);
+}
+
+h1 {
+  --min: var(--fs-h1);
+  --val: 6vw;
+  --max: 3rem;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: var(--fs-h6);
+}
+
+p {
+  --min: 1rem;
+  --val: 2.5vw;
+  --max: 1.2rem;
+  /* margin-bottom: 0.8em; */
+}
+
+small {
+  font-size: var(--fs-s);
+}
+
+a {
+  color: var(--clr-p);
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 2px solid;
+}
+
+button {
+  background-color: var(--clr-p);
+  border-radius: var(--br);
+  border-style: none;
+  color: var(--clr-n-6);
+  font-size: var(--fs-p-md);
+  font-weight: var(--fw-b);
+  min-width: 7rem;
+  padding: 0.7rem 1rem;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+input {
+  border-radius: var(--br);
+  border-style: none;
+  padding: 1rem;
+  width: min(36rem, 100%);
+}
+
+input:focus {
+  border: 1px solid var(--clr-p);
+  outline: none !important;
+}
+
+::placeholder {
+  color: var(--clr-n-4);
+  opacity: 1;
+}
+
+.nav-top,
+.categories,
+.search-bar,
+.categories,
+.lists,
+.tags,
+.nav-bottom {
+  border: 1px solid #fff;
+  padding-inline: clamp(1.1rem, 8vw, 6rem);
+}
+
+.page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* .page > * {
+  border: 1px solid var(--clr-n-6);
+  padding-inline: clamp(1.1rem, 8vw, 6rem);
+} */
+
+.page-content {
+  padding-block: clamp(2rem, 15vh, 6rem);
+  flex: 1;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: var(--spacer-lg);
+}
+
+.header h1 {
+  font-size: var(--fs-h2);
+  margin: 0;
+}
+
+.problem {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.problem-card {
+  align-items: center;
+  background-color: var(--clr-n-2);
+  border-radius: var(--br);
+  display: flex;
+  justify-content: center;
+  min-height: 10rem;
+  min-width: 20rem;
+  /* min-width: clamp(7rem, 100%, 10rem); */
+  padding: 2rem var(--spacer);
+  text-align: center;
+}
+
+.problem-card p {
+  font-size: var(--fs-h1);
+}
+
+.instructions {
+  padding: var(--spacer);
+  text-align: center;
+}
+
+/* .instructions-text {} */
+
+.answers {
+  align-items: center;
+  /* border: 1px solid #fff; */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: var(--spacer);
+}
+
+/* .answers-btn {} */
+
+.footer {
+  padding: var(--spacer);
+  text-align: center;
+}
+
+/* MISC */
+
+.nav-top {
+  display: flex;
+  justify-content: right;
+  padding-block: 1rem;
+}
+
+.nav-top__btn {
+  background: none;
+  color: var(--clr-p);
+  padding: 0;
+}
+
+.nav-top__btn:active {
+  background: none;
+  opacity: 0.8;
+}
+
+.search-bar {
+  margin-bottom: var(--spacer-md);
+}
+
+.search-bar__input {
+  background-color: var(--clr-n-2);
+  color: var(--clr-n-6);
+  padding: 0.8rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: var(--spacer-lg);
+}
+
+.categories__item {
+  flex: 1 1 10rem;
+}
+
+.categories__item__icon {
+  background-color: var(--clr-n-5);
+  border-radius: 50%;
+  height: 2rem;
+  margin-bottom: 1.3rem;
+  margin-right: 1rem;
+  width: 2rem;
+}
+
+.categories__item__count {
+  color: var(--clr-n-6);
+  text-align: right;
+}
+
+.categories__item__row {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categories__item__title {
+  color: var(--clr-n-5);
+  line-height: 1;
+  margin: 0;
+}
+
+.lists {
+  margin-bottom: var(--spacer-lg);
+}
+
+.lists__title {
+  color: var(--clr-n-6);
+}
+
+.lists__item {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.lists__item__group {
+  align-items: center;
+  display: flex;
+}
+
+.lists__item__icon {
+  background-color: var(--clr-n-5);
+  border-radius: 50%;
+  height: 2rem;
+  margin-right: 1rem;
+  width: 2rem;
+}
+
+.lists__item__title {
+  color: var(--clr-n-6);
+  line-height: 1;
+  margin: 0;
+}
+
+.lists__item__count {
+  color: var(--clr-n-6);
+  line-height: 1;
+  margin: 0;
+}
+
+.tags {
+  margin-bottom: var(--spacer);
+}
+
+.tags__group {
+  display: flex;
+  flex: 1 1 10rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags .card {
+  padding: 0.6rem 0.8rem;
+}
+
+.tags__title {
+  color: var(--clr-n-6);
+}
+
+.tags__tag__title {
+  color: var(--clr-n-5);
+  font-size: var(--fs-p-sm);
+  line-height: 1;
+  margin: 0;
+}
+
+.nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+/*
+.nav-bottom__group {}
+.nav-bottom__btn__icon {}
+*/
+
+.nav-bottom__btn--new-task,
+.nav-bottom__btn--new-list {
+  background: none;
+  color: var(--clr-p);
+  padding: 0;
+}
+
+.nav-bottom__btn--new-task:active,
+.nav-bottom__btn--new-list:active {
+  background: none;
+  opacity: 0.8;
+}

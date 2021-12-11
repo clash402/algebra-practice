@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Algebra Practice</title>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reminders web app" />
+
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="icon" href="" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+</html>
+
+<body onload="onLoad()">
+  <div class="page">
+    <header class="header">
+      <h1>algebra practice</h1>
+    </header>
+
+    <div class="page-content">
+      <section class="problem">
+        <div class="problem-card">
+          <p id="problem-text"></p>
+        </div>
+      </section>
+
+      <section class="instructions">
+        <div class="instructions-text">
+          <small>Multiply to find the product</small>
+        </div>
+      </section>
+
+      <section class="answers">
+        <button
+          id="answers-btn-1"
+          class="answers-btn"
+          onclick="onAnswerBtnClicked(this)"
+        ></button>
+        <button
+          id="answers-btn-2"
+          class="answers-btn"
+          onclick="onAnswerBtnClicked(this)"
+        ></button>
+        <button
+          id="answers-btn-3"
+          class="answers-btn"
+          onclick="onAnswerBtnClicked(this)"
+        ></button>
+        <button
+          id="answers-btn-4"
+          class="answers-btn"
+          onclick="onAnswerBtnClicked(this)"
+        ></button>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <small>&copy; 2022 Josh Courtney. All rights reserved.</small>
+    </footer>
+  </div>
+
+  <script src="./scripts/app.js"></script>
+</body>

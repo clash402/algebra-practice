@@ -80,9 +80,9 @@ function onLoad() {
 
 function onAnswerBtnClicked(btn) {
   if (currentCorrectAnswer === btn.innerHTML) {
-    alert("Yes");
+    alert("That's right! Good job");
   } else {
-    alert("No");
+    alert("Incorrect. The answer is " + currentCorrectAnswer);
   }
 
   const problemSet = getProblemSet();

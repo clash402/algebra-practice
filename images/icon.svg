@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="clip-icon-512">
+      <rect width="512" height="512"/>
+    </clipPath>
+  </defs>
+  <g id="icon-512" clip-path="url(#clip-icon-512)">
+    <g id="icon">
+      <circle id="icon-2" data-name="icon" cx="256" cy="256" r="256" fill="#3b81f6"/>
+      <text id="ap" transform="translate(85 341)" fill="#fff" font-size="320" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">ap</tspan></text>
+    </g>
+  </g>
+</svg>

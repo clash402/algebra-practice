@@ -25,6 +25,8 @@ function getRandomEquation() {
   const coefficientIsLeading = getRandomBool();
   const randomLetter = getRandomLetter();
 
+  const leadingTermSign = getRandomSign();
+
   const coefficient = getRandomInt(10);
   const variable = getRandomInt(10);
   const constantLHS = getRandomInt(10);
@@ -34,27 +36,36 @@ function getRandomEquation() {
   let constantRHS;
   let constantLHSSign;
   let coefficientSign;
-  let leadingTermSign;
   let equation;
 
   if (coefficientIsLeading) {
     if (constantLHSIsPositive) {
-      constantRHS = coefficient * variable + constantLHS;
+      constantRHS = leadingTermSign * coefficient * variable + constantLHS;
       constantLHSSign = "+";
     } else {
-      constantRHS = coefficient * variable - constantLHS;
+      constantRHS = leadingTermSign * coefficient * variable - constantLHS;
       constantLHSSign = "-";
     }
-    equation = `${coefficient}${randomLetter} ${constantLHSSign} ${constantLHS} = ${constantRHS}`;
+
+    if (leadingTermSign === 1) {
+      equation = `${coefficient}${randomLetter} ${constantLHSSign} ${constantLHS} = ${constantRHS}`;
+    } else {
+      equation = `-${coefficient}${randomLetter} ${constantLHSSign} ${constantLHS} = ${constantRHS}`;
+    }
   } else {
     if (coefficientIsPositive) {
-      constantRHS = constantLHS + coefficient * variable;
+      constantRHS = leadingTermSign * constantLHS + coefficient * variable;
       coefficientSign = "+";
     } else {
-      constantRHS = constantLHS - coefficient * variable;
+      constantRHS = leadingTermSign * constantLHS - coefficient * variable;
       coefficientSign = "-";
     }
-    equation = `${constantLHS} ${coefficientSign} ${coefficient}${randomLetter} = ${constantRHS}`;
+
+    if (leadingTermSign === 1) {
+      equation = `${constantLHS} ${coefficientSign} ${coefficient}${randomLetter} = ${constantRHS}`;
+    } else {
+      equation = `-${constantLHS} ${coefficientSign} ${coefficient}${randomLetter} = ${constantRHS}`;
+    }
   }
 
   return [equation, variable];
@@ -142,6 +153,20 @@ function getRandomLetter() {
   const letters = ["x", "y", "z"];
   const randomLetter = letters[Math.round(Math.random() * 2)];
   return randomLetter;
+}
+
+function getRandomSign() {
+  const bools = [true, false];
+  const signIsPositive = bools[Math.round(Math.random())];
+  let randomSign = 1;
+
+  if (signIsPositive) {
+    randomSign *= 1;
+  } else {
+    randomSign *= -1;
+  }
+
+  return randomSign;
 }
 
 function shuffle(array) {

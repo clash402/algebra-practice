@@ -215,7 +215,7 @@ input:focus {
   display: flex;
   justify-content: center;
   min-height: clamp(2rem, 10vw, 10rem);
-  /* max-width: 20rem; */
+  max-width: 28rem;
   /* min-width: clamp(7rem, 100%, 10rem); */
   padding: clamp(2rem, 10vw, 4rem);
   text-align: center;

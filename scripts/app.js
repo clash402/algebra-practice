@@ -20,38 +20,38 @@ function getRandomProblemAndAnswer() {
 }
 
 function getRandomEquation() {
-  const letters = ["x", "y", "z"];
-  const randomLetter = letters[Math.round(Math.random() * 2)];
-  const constantIsPositive = getRandomBool();
   const coefficientIsPositive = getRandomBool();
-  const constantIsLeading = getRandomBool();
-  const vinculum = "\u2044";
+  const constantLHSIsPositive = getRandomBool();
+  const coefficientIsLeading = getRandomBool();
+  const randomLetter = getRandomLetter();
 
   const coefficient = getRandomInt(10);
   const variable = getRandomInt(10);
-  const constant1 = getRandomInt(10);
+  const constantLHS = getRandomInt(10);
 
-  let constant2;
-  let constantSign;
+  const vinculum = "\u2044";
+
+  let constantRHS;
+  let constantLHSSign;
   let coefficientSign;
   let equation;
 
-  if (constantIsPositive) {
-    constant2 = coefficient * variable + constant1;
-    constantSign = "+";
+  if (constantLHSIsPositive) {
+    constantRHS = coefficient * variable + constantLHS;
+    constantLHSSign = "+";
   } else {
-    constant2 = coefficient * variable - constant1;
-    constantSign = "-";
+    constantRHS = coefficient * variable - constantLHS;
+    constantLHSSign = "-";
   }
 
-  if (constantIsLeading) {
-    if (constantSign === "+") {
-      equation = `${constant1} + ${coefficient}${randomLetter} = ${constant2}`;
-    } else {
-      equation = `${constantSign}${constant1} + ${coefficient}${randomLetter} = ${constant2}`;
-    }
+  if (coefficientIsLeading) {
+    equation = `${coefficient}${randomLetter} ${constantLHSSign} ${constantLHS} = ${constantRHS}`;
   } else {
-    equation = `${coefficient}${randomLetter} ${constantSign} ${constant1} = ${constant2}`;
+    if (constantLHSSign === "+") {
+      equation = `${constantLHS} + ${coefficient}${randomLetter} = ${constantRHS}`;
+    } else {
+      equation = `${constantLHSSign}${constantLHS} + ${coefficient}${randomLetter} = ${constantRHS}`;
+    }
   }
 
   return [equation, variable];
@@ -133,6 +133,12 @@ function getRandomBool() {
   const bools = [true, false];
   const randomBool = bools[Math.round(Math.random())];
   return randomBool;
+}
+
+function getRandomLetter() {
+  const letters = ["x", "y", "z"];
+  const randomLetter = letters[Math.round(Math.random() * 2)];
+  return randomLetter;
 }
 
 function shuffle(array) {

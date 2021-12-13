@@ -1,6 +1,9 @@
 {
   "short_name": "Algebra",
   "name": "Algebra Practice",
+  "description": "Practice algebra the easy way!",
+  "background_color": "",
+  "theme_color": "",
   "icons": [
     {
       "src": "/images/icons/icon.svg",
@@ -16,6 +19,30 @@
       "src": "/images/icons/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/screenshot1.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    },
+    {
+      "src": "/images/screenshots/screenshot2.jpg",
+      "type": "image/jpg",
+      "sizes": "540x720"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "Let's practice algebra",
+      "short_name": "Practice",
+      "description": "Practice algebra",
+      "url": "/practice?source=pwa",
+      "icons": [{ "src": "/images/practice-icon.png", "sizes": "192x192" }]
     }
   ]
 }

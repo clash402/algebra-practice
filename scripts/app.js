@@ -19,8 +19,46 @@ function getRandomProblemAndAnswer() {
   return [problemString, answerInt];
 }
 
+function getRandomEquation() {
+  const letters = ["x", "y", "z"];
+  const randomLetter = letters[Math.round(Math.random() * 2)];
+  const constantIsPositive = getRandomBool();
+  const coefficientIsPositive = getRandomBool();
+  const constantIsLeading = getRandomBool();
+  const vinculum = "\u2044";
+
+  const coefficient = getRandomInt(10);
+  const variable = getRandomInt(10);
+  const constant1 = getRandomInt(10);
+
+  let constant2;
+  let constantSign;
+  let coefficientSign;
+  let equation;
+
+  if (constantIsPositive) {
+    constant2 = coefficient * variable + constant1;
+    constantSign = "+";
+  } else {
+    constant2 = coefficient * variable - constant1;
+    constantSign = "-";
+  }
+
+  if (constantIsLeading) {
+    if (constantSign === "+") {
+      equation = `${constant1} + ${coefficient}${randomLetter} = ${constant2}`;
+    } else {
+      equation = `${constantSign}${constant1} + ${coefficient}${randomLetter} = ${constant2}`;
+    }
+  } else {
+    equation = `${coefficient}${randomLetter} ${constantSign} ${constant1} = ${constant2}`;
+  }
+
+  return [equation, variable];
+}
+
 function getProblemSet() {
-  const [problemString, correctAnswer] = getRandomProblemAndAnswer();
+  const [problemString, correctAnswer] = getRandomEquation();
   let possibleAnswers = [correctAnswer];
   let i = 0;
 

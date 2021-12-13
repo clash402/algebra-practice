@@ -34,24 +34,27 @@ function getRandomEquation() {
   let constantRHS;
   let constantLHSSign;
   let coefficientSign;
+  let leadingTermSign;
   let equation;
 
-  if (constantLHSIsPositive) {
-    constantRHS = coefficient * variable + constantLHS;
-    constantLHSSign = "+";
-  } else {
-    constantRHS = coefficient * variable - constantLHS;
-    constantLHSSign = "-";
-  }
-
   if (coefficientIsLeading) {
+    if (constantLHSIsPositive) {
+      constantRHS = coefficient * variable + constantLHS;
+      constantLHSSign = "+";
+    } else {
+      constantRHS = coefficient * variable - constantLHS;
+      constantLHSSign = "-";
+    }
     equation = `${coefficient}${randomLetter} ${constantLHSSign} ${constantLHS} = ${constantRHS}`;
   } else {
-    if (constantLHSSign === "+") {
-      equation = `${constantLHS} + ${coefficient}${randomLetter} = ${constantRHS}`;
+    if (coefficientIsPositive) {
+      constantRHS = constantLHS + coefficient * variable;
+      coefficientSign = "+";
     } else {
-      equation = `${constantLHSSign}${constantLHS} + ${coefficient}${randomLetter} = ${constantRHS}`;
+      constantRHS = constantLHS - coefficient * variable;
+      coefficientSign = "-";
     }
+    equation = `${constantLHS} ${coefficientSign} ${coefficient}${randomLetter} = ${constantRHS}`;
   }
 
   return [equation, variable];
